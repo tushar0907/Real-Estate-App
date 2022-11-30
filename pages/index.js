@@ -7,14 +7,13 @@ import {baseUrl, fetchApi} from '../utils/fetchApi';
 
 export const Banner=({purpose, title1, title2, desc1, desc2, buttonText, linkName, imageUrl}) => (
   <Flex flexWrap='wrap' justifyContent='center' alignItems='center' m='10'>
-    <Image src={imageUrl} width={500} height={300} />
+    <Image alt="img" src={imageUrl} width={500} height={300} />
     <Box p='5'>
       <Text color='gray.500' fontSize='sm' fontWeight='medium'>{purpose}</Text>
       <Text fontSize='3xl' fontWeight='bold'>{title1}<br />{title2}</Text>
       <Text fontSize='lg' paddingTop='3' paddingBottom='3' color='gray.700'>{desc1}<br />{desc2}</Text>
       <Button fontSize='xl' bg="blue.300" color="white">
-        <a>{buttonText}</a>
-        {/* <Link href={linkName}><a>{buttonText}</a></Link> */}
+        <Link href={`${linkName}`}>{buttonText}</Link>
       </Button>
     </Box>
   </Flex>
@@ -30,6 +29,7 @@ const Home=({propertiesForSale, propertiesForRent}) => (
       desc1=' Explore from Apartments, builder floors, villas'
       desc2='and more'
       buttonText='Explore Renting'
+      linkName='/search?purpose=for-rent'
       imageUrl='https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4'
     />
     <Flex flexWrap='wrap'>
@@ -42,6 +42,7 @@ const Home=({propertiesForSale, propertiesForRent}) => (
       desc1=' Explore from Apartments, land, builder floors,'
       desc2=' villas and more'
       buttonText='Explore Buying'
+      linkName='/search?purpose=for-sale'
       imageUrl='https://bayut-production.s3.eu-central-1.amazonaws.com/image/110993385/6a070e8e1bae4f7d8c1429bc303d2008'
     />
     <Flex flexWrap='wrap'>
